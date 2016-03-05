@@ -543,6 +543,22 @@ body {
 	transform-style: preserve-3d;
 	opacity: 1;
 
+  .top-menu {
+    padding: 0;
+    margin: 0;
+
+    ul { list-style: none; }
+
+    li {
+      display: inline;
+      margin-right: 1em;
+
+      &:before {
+        content: '' !important;
+      }
+    }
+  }
+
 	&:after {
 		clear: both;
 		content: '';
@@ -607,6 +623,7 @@ body {
 
 		.menu {}
 	}
+
 }
 
 .loading {
