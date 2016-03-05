@@ -1,0 +1,5 @@
+{{ range $section, $pages := .Site.Sections }}
+  {{ if ne $section "" }}
+    <li class="menu-list-item"><a href="/{{ $section }}">{{ title $section }}</a></li>
+  {{ end }}
+{{ end }}
