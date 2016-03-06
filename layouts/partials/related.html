@@ -5,7 +5,7 @@
       {{ $page_link := .Permalink }}
       {{ $tags := .Params.tags }}
       {{ range where (where .Site.Pages.ByDate.Reverse "Type" "post") "Date.Unix" "<" .Date.Unix }}
-        {{ $common_tags_required := 1 }}
+        {{ $common_tags_required := $.Site.Params.NumCommonTagsForRelated }}
         {{ $has_common_tags := (ge (intersect $tags .Params.tags | len ) $common_tags_required ) }}
         {{ $is_not_current := (ne $page_link .Permalink) }}
         {{ $under_limit := (lt ($.Scratch.Get "related_matches") $.Site.Params.NumRelatedPosts) }}
