@@ -1,0 +1,5 @@
+{{ $currentNode := . }}
+{{ range .Site.Menus.main }}
+ <li class="menu-list-item">
+   <a class="{{if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }}current{{end}}" href="{{.URL}}">{{ .Name }}</a>
+{{ end }}

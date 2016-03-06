@@ -1,12 +1,10 @@
-{{ if .IsPage }}
 <div id="menu" data-target="menu">
 	<div class="menu-header">
 		<span class="menu-label">Menu</span>
 		<a class="menu-close" data-action="menu" data-target="menu"></a>
 	</div>
-	<div id="toc" class="menu-list">
-    {{ partial "sections.html" . }}
-	</div>
+	<ul id="toc" class="menu-list">
+    {{ partial "menu.html" . }}
+	</ul>
 </div>
 <div class="overlay"></div>
-{{ end }}

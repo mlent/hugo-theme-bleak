@@ -546,6 +546,7 @@ body {
   .top-menu {
     padding: 0;
     margin: 0;
+    display: inline-block; 
 
     ul { list-style: none; }
 
@@ -553,9 +554,17 @@ body {
       display: inline;
       margin-right: 1em;
 
+      a {
+        width: auto;
+      }
+
       &:before {
         content: '' !important;
       }
+    }
+
+    @media only screen and (max-width: $breakpoint-tablet) {
+      display: none;
     }
   }
 
@@ -619,9 +628,15 @@ body {
 			}
 		}
 
-		.rss {}
+		.rss { float: right; }
 
-		.menu {}
+		.menu {
+      display: none;
+      @media only screen and (max-width: $breakpoint-tablet) {
+        display: block;
+        float: right;
+      }
+    }
 	}
 
 }
