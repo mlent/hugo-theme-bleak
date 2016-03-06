@@ -1493,6 +1493,14 @@ body {
 				display: none;
 			}
 
+			&.icon-pinterest {
+				background-color: #cb2027;
+
+        svg {
+          fill: white;
+          margin-top: 4px;
+        }
+			}
 			&.icon-twitter {
 				background-color: #3ea9dd;
 			}
