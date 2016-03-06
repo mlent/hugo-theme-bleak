@@ -14,6 +14,9 @@
           {{ $.Scratch.Add "related_matches" 1 }}
         {{ end }}
       {{ end }}
+      {{ if (not ($.Scratch.Get "related_matches")) }}
+        <p>No related posts found.</p>
+      {{ end }}
     </div>
   </div>
 </div>
