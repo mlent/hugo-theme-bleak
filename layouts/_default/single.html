@@ -15,8 +15,6 @@
   				{{ .Content }}
   			</section>
 
-        {{ partial "related.html" . }}
-
   			<footer class="post-footer">
   				<div class="post-tags">
             {{if .Params.tags }}
@@ -25,17 +23,7 @@
             {{ end }}
             {{ end }}
   				</div>
-  				<div class="post-share">
-  					<a class="icon-twitter" href="https://twitter.com/share?text={{ .Title }}&url={{ .Permalink }}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-  						<span>Twitter</span>
-  					</a>
-  					<a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-  						<span>Facebook</span>
-  					</a>
-  					<a class="icon-gplus" href="https://plus.google.com/share?url={{ .Permalink }}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-  						<span>Google+</span>
-  					</a>
-  				</div>
+          {{ partial "social.html" . }}
   			</footer>
 			</div>
 
@@ -64,6 +52,8 @@
 				{{ end }}
 				<div class="clear"></div>
 			</nav>
+
+      {{ partial "related.html" . }}
 
 		</div>
 	</article>
