@@ -4,10 +4,14 @@
     <div id="push">
       {{ $page_link := .Permalink }}
       {{ $tags := .Params.tags }}
-      {{ range $i, $page := .Site.Pages }}
-        {{ $has_common_tags := intersect $tags .Params.tags | len | lt 0 }}
-        {{ if and $has_common_tags (ne $page_link $page.Permalink) }}
+      {{ range where (where .Site.Pages.ByDate.Reverse "Type" "post") "Date.Unix" "<" .Date.Unix }}
+        {{ $common_tags_required := 1 }}
+        {{ $has_common_tags := (ge (intersect $tags .Params.tags | len ) $common_tags_required ) }}
+        {{ $is_not_current := (ne $page_link .Permalink) }}
+        {{ $under_limit := (lt ($.Scratch.Get "related_matches") $.Site.Params.NumRelatedPosts) }}
+        {{ if and $has_common_tags $under_limit $is_not_current}}
           {{ .Render "li" }}
+          {{ $.Scratch.Add "related_matches" 1 }}
         {{ end }}
       {{ end }}
     </div>
