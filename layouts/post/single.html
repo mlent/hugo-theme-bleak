@@ -19,8 +19,6 @@
   				{{ .Content }}
   			</section>
 
-        {{ partial "related.html" . }}
-
   			<footer class="post-footer">
   				<div class="post-tags">
             {{if .Params.tags }}
@@ -78,6 +76,8 @@
 				{{ end }}
 				<div class="clear"></div>
 			</nav>
+
+      {{ partial "related.html" . }}
 
 		</div>
 	</article>

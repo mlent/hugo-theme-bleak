@@ -1,17 +1,15 @@
 <div id="related">
-  <section>
-		<hr>
-		<h3>You might also like...</h3>
-    <ul class="post-rels">
-			{{ $page_link := .Permalink }}
-			{{ $tags := .Params.tags }}
-			{{ range .Site.Pages }}
-				{{ $page := . }}
-				{{ $has_common_tags := intersect $tags .Params.tags | len | lt 0 }}
-				{{ if and $has_common_tags (ne $page_link $page.Permalink) }}
-					<li><a href="{{ $page.Permalink }}">{{ $page.Title }} - {{ $page.ReadingTime }} Minutes</a></li>
-				{{ end }}
-			{{ end }}
-		</ul>
-  </section>
+  <h3>Related</h3>
+  <div class="post-list">
+    <div id="push">
+      {{ $page_link := .Permalink }}
+      {{ $tags := .Params.tags }}
+      {{ range $i, $page := .Site.Pages }}
+        {{ $has_common_tags := intersect $tags .Params.tags | len | lt 0 }}
+        {{ if and $has_common_tags (ne $page_link $page.Permalink) }}
+          {{ .Render "li" }}
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
 </div>
