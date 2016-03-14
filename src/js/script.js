@@ -2,7 +2,7 @@ jQuery(function($) {
 
 	var html = $('html');
 	var body = $('body');
-	$("img.lazy").unveil();
+	$("img[data-src]").unveil();
 
 
 	/* ==========================================================================
@@ -167,6 +167,7 @@ jQuery(function($) {
 		comments();
     gist();
 		currentMenuFix();
+    $("img[data-src]").unveil();
 	}
 
 	/* ==========================================================================
