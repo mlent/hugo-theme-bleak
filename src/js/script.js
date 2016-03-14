@@ -2,6 +2,8 @@ jQuery(function($) {
 
 	var html = $('html');
 	var body = $('body');
+	$("img.lazy").unveil();
+
 
 	/* ==========================================================================
 	   Menu Function

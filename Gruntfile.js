@@ -19,6 +19,7 @@ module.exports = function(grunt) {
 				'bower_components/fitvids/jquery.fitvids.js',
 				'bower_components/highlightjs/highlight.pack.min.js',
 				'bower_components/nprogress/nprogress.js',
+				'bower_components/jquery-unveil/jquery.unveil.min.js',
         'src/js/vendor/gist-embed.min.js'
 			],
 			'cssDependencies': [
