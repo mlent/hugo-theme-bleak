@@ -20,12 +20,14 @@ module.exports = function(grunt) {
 				'bower_components/highlightjs/highlight.pack.min.js',
 				'bower_components/nprogress/nprogress.js',
 				'bower_components/jquery-unveil/jquery.unveil.min.js',
+				'src/js/vendor/jquery.imgPin.js',
         'src/js/vendor/gist-embed.min.js'
 			],
 			'cssDependencies': [
 				'bower_components/normalize.css/normalize.css',
 				'bower_components/highlightjs/styles/default.css',
-				'bower_components/nprogress/nprogress.css'
+				'bower_components/nprogress/nprogress.css',
+        'src/css/imgPin.default.css'
 			]
         },
         copy: {

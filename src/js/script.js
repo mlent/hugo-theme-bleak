@@ -2,8 +2,7 @@ jQuery(function($) {
 
 	var html = $('html');
 	var body = $('body');
-	$("img[data-src]").unveil();
-
+  handleImages();
 
 	/* ==========================================================================
 	   Menu Function
@@ -159,6 +158,16 @@ jQuery(function($) {
 	   Reload all scripts after AJAX load
 	   ========================================================================== */
 
+
+  function handleImages() {
+    $("img[data-src]")
+      .unveil()
+      .imgPin({
+        position: 2,
+        pinImg: '//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_20.png'
+      });
+  }
+
 	function reload() {
 		grid();
 		ajaxLinkClass();
@@ -167,7 +176,7 @@ jQuery(function($) {
 		comments();
     gist();
 		currentMenuFix();
-    $("img[data-src]").unveil();
+    handleImages();
 	}
 
 	/* ==========================================================================
