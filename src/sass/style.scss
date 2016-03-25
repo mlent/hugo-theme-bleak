@@ -344,7 +344,7 @@ img {
 	display: block;
 	max-width: 100%;
 	height: auto;
-	margin: 2.5em auto;
+	margin: 0 auto;
 }
 
 iframe {
@@ -585,7 +585,7 @@ body {
 			max-width: none;
 			height: 2em;
 			margin: 0;
-			border-radius: 5px;
+			border-radius: 100%;
 		}
 
 		.name {

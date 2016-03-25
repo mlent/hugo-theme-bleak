@@ -83,7 +83,9 @@
                 {{ if isset .Site.Params "logo" }}
                 <img src="{{ .Site.Params.logo }}" alt="Logo" />
                 {{ else }}
-                <img src="https://www.gravatar.com/avatar/1a2807faf3cca1667ff6f04bf5886eff.png" alt="Logo" />
+                  <span class="name">
+                    {{ .Site.Title }}
+                  </span>
                 {{ end }}
               </a>
             </div>
