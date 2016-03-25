@@ -1821,3 +1821,13 @@ body {
   display: flex;
   justify-content: space-between;
 }
+a.place {
+  &:before {
+    background-image: url(/images/pin.png);
+    width: 15px;
+    height: 13px;
+    display: inline-block;
+    content: '';
+    margin-right: 2px;
+  }
+}
