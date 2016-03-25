@@ -37,7 +37,9 @@
     }
 
     this.each(function(){ // add Pin buttons to all images
-      var src = $(this).attr('src') || $(this).attr('data-src');
+      var port = window.location.port;
+      var src = 'http://' + window.location.hostname + (port ? ':' + port : '') +
+        ($(this).attr('src') || $(this).attr('data-src'));
       var shareURL = url;
 
       // get image dimensions - if < 500 then return
