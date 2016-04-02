@@ -47,7 +47,8 @@
       img.src = src;
 
       // Get Title and img to pin - encode them
-      var description = encodeURIComponent(document.title),
+      var title = $(this).attr('title') || $(this).attr('alt');
+      var description = title + ' (' + encodeURIComponent(document.title) + ')',
           imgURL = encodeURIComponent(src);
 
       // Generate link
