@@ -48,8 +48,10 @@
 
       // Get Title and img to pin - encode them
       var title = $(this).attr('title') || $(this).attr('alt');
-      var description = title + ' (' + encodeURIComponent(document.title) + ')',
-          imgURL = encodeURIComponent(src);
+      var description = title + ' (' + document.title + ')';
+      description = encodeURIComponent(description);
+
+      var imgURL = encodeURIComponent(src);
 
       // Generate link
       var link = 'https://www.pinterest.com/pin/create/button/';
