@@ -39,12 +39,8 @@
     this.each(function(){ // add Pin buttons to all images
       var port = window.location.port;
       var src = 'http://' + window.location.hostname + (port ? ':' + port : '') +
-        ($(this).attr('src') || $(this).attr('data-src'));
+        ($(this).attr('src') || $(this).attr('data-lazy'));
       var shareURL = url;
-
-      // get image dimensions - if < 500 then return
-      var img = new Image();
-      img.src = src;
 
       // Get Title and img to pin - encode them
       var title = $(this).attr('title') || $(this).attr('alt');
@@ -61,18 +57,6 @@
 
       //add wrappers
       $(this).wrap('<div class="imgPinWrap">').after('<a href="'+link+'" class="pin '+position+'"><img src="'+pinImg+'" alt="Pin this!"></a>');
-
-      //position center
-      if (options.position == 5) {
-        var img = new Image();
-        img.onload = function() {
-          var w = this.width;
-          h = this.height;
-          $('.imgPinWrap .pin.center').css('margin-left', -w/2).css('margin-top', -h/2);
-        }
-        img.src = pinImg;
-      }
-
 
       //set click events
       $('.imgPinWrap .pin').click(function(){
