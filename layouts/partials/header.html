@@ -26,12 +26,12 @@
         <meta name="twitter:title" content="{{ .Title }}" />
         <meta name="twitter:description" content="{{ .Description }}" />
         <meta name="twitter:url" content="{{ .Permalink }}" />
-        <meta name="twitter:image" content="{{ .Site.Params.BaseURL }}{{ (.Params.twitterimage) or (.Params.image) }}">
+        <meta name="twitter:image" content="{{ substr .Site.BaseURL 0 -1 }}{{ (.Params.twitterimage) or (.Params.image) }}">
     {{ else }}
         <meta property="og:type" content="website" />
     {{ end }}
 
-        <title>{{ if ne .URL "/" }} {{ .Title }} &middot; {{ end }} {{ .Site.Title }}</title>
+        <title>{{ if ne .URL "/" }} {{ .Title }} | {{ end }} {{ .Site.Title }}</title>
 
     {{ if .Description }}
         <meta name="description" content="{{ .Description }}" />
