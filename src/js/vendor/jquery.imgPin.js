@@ -43,9 +43,8 @@
       var shareURL = url;
 
       // Get Title and img to pin - encode them
-      var title = $(this).attr('title') || $(this).attr('alt');
-      var description = title + ' (' + document.title + ')';
-      description = encodeURIComponent(description);
+      var title = $(this).attr('title');
+      var description = encodeURIComponent(title);
 
       var imgURL = encodeURIComponent(src);
 
