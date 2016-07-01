@@ -1818,10 +1818,22 @@ body {
 	}
 }
 .flex {
-  display: flex;
-  justify-content: space-between;
+  display: block;
+  margin-bottom: 3px;
+
+  @media (min-width: 780px) {
+    display: flex;
+    justify-content: space-between;
+
+    &.unequal img[data-lazy] {
+      height: 353px;
+    }
+    &.equal img[data-lazy] {
+      width: 99%;
+    }
+  }
 }
-a.place {
+.place {
   &:before {
     background-image: url(/images/pin.png);
     width: 15px;
