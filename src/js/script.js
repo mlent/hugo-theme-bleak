@@ -338,6 +338,14 @@ jQuery(function($) {
 	    }
 	});
 
+  var feed = new Instafeed({
+    get: 'user',
+    userId: '3066755405',
+    limit: 9,
+    accessToken: '3066755405.e236d3d.4c6bd2bb878c432db0c4b99b91893700'
+  });
+  feed.run();
+
 	$('body').on('click', '#post-index .post .js-ajax-link', function() {
 		var post = $(this).parents('.post');
 		post.addClass('initial');

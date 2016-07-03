@@ -87,13 +87,10 @@
           <nav id="nav" class="nav">
             <div class="nav-logo">
               <a href="{{ .Site.BaseURL }}">
-                {{ if isset .Site.Params "logo" }}
                 <img src="{{ .Site.Params.logo }}" alt="Logo" />
-                {{ else }}
-                  <span class="name">
-                    {{ .Site.Title }}
-                  </span>
-                {{ end }}
+                <span class="name">
+                  {{ .Site.Title }}
+                </span>
               </a>
             </div>
             <div class="nav-menu">

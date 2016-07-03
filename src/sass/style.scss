@@ -42,6 +42,7 @@ html {}
 body {
 	font: 300 1em / 1.5em 'Merriweather Sans', sans-serif;
 	color: $color-gray-40;
+  position: relative;
 }
 
 ::-moz-selection, ::selection {
@@ -586,16 +587,19 @@ body {
 			height: 2em;
 			margin: 0;
 			border-radius: 100%;
+      display: inline-block;
 		}
 
 		.name {
-			display: block;
 			line-height: 2em;
 			font-weight: 800;
 			color: $color-gray-25;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
+      position: relative;
+      top: -10px;
+      padding: 4px;
 		}
 	}
 
@@ -1841,5 +1845,30 @@ body {
     display: inline-block;
     content: '';
     margin-right: 2px;
+  }
+}
+
+#instafeed {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px;
+
+  a {
+    background-color: $color-primary-active;
+    display: inline-block;
+    overflow: hidden;
+
+    &:hover img {
+      transform: scale(1.15);
+      transform-style: preserve-3d;
+      opacity: .5;
+    }
+  }
+
+  img {
+    -webkit-transition: all ease-out 0.3s;
+    transition: all ease-out 0.3s;
+    transform: scale(1);
+    display: inline-block;
   }
 }
