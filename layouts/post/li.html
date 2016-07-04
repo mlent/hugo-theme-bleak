@@ -1,20 +1,29 @@
+{{ $slug := substr .RelPermalink 1 (sub (len .RelPermalink) 2) }}
 {{ if .Params.featured }}
-<article class="{{ .Section }} featured">
+  <article class="{{ .Section }} featured">
 {{ else }}
-<article class="{{ .Section }}">
+  <article class="{{ .Section }}">
 {{ end }}
-	<div class="inner">
-		<a class="post-link" href="{{ .Permalink }}"></a>
-		{{ if .Params.image }}
-		<figure class="post-image">
-			<a href="{{ .Permalink }}"><img src="{{ .Params.image }}" alt="" /></a>
-		</figure>
-		{{ end }}
-		<span class="post-meta">
-			<span class="post-date">{{ .Date.Format "2 Jan 2006" }}</span>
-		</span>
-		<h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-		<p class="post-excerpt">{{ .Description }}</p>
-		<span class="post-more"><a href="{{ .Permalink }}">Read More <i class="icon-arrow-right"></i></a></span>
-	</div>
+  <div class="inner">
+    <a
+      onClick="ga('send', 'event', 'Post Link', 'Click', '{{ $slug }}@post-list')"
+      class="post-link"
+      href="{{ .Permalink }}">
+    </a>
+    {{ if .Params.image }}
+      {{ $slug := substr .RelPermalink 1 (sub (len .RelPermalink) 2) }}
+      <figure class="post-image">
+        <a
+          href="{{ .Permalink }}">
+          <img src="{{ .Params.image }}" alt="" />
+        </a>
+      </figure>
+    {{ end }}
+    <span class="post-meta">
+      <span class="post-date">{{ .Date.Format "2 Jan 2006" }}</span>
+    </span>
+    <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    <p class="post-excerpt">{{ .Description }}</p>
+    <span class="post-more"><a href="{{ .Permalink }}">Read More <i class="icon-arrow-right"></i></a></span>
+  </div>
 </article>

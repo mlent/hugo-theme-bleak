@@ -342,6 +342,7 @@ jQuery(function($) {
     get: 'user',
     userId: '3066755405',
     limit: 9,
+    template: '<a href="{{link}}" target="_blank" onClick="ga(\'send\', \'event\', \'External Link\', \'Instagram\', \'{{link}}@instafeed\')"><img src="{{image}}"></a>',
     accessToken: '3066755405.e236d3d.4c6bd2bb878c432db0c4b99b91893700'
   });
   feed.run();

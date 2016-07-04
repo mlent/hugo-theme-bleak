@@ -86,7 +86,9 @@
         <div id="ajax-container">
           <nav id="nav" class="nav">
             <div class="nav-logo">
-              <a href="{{ .Site.BaseURL }}">
+              <a
+                onClick="ga('send', 'event', 'Title Link', 'Click', 'logo@header-menu')"
+                href="{{ .Site.BaseURL }}">
                 <img src="{{ .Site.Params.logo }}" alt="Logo" />
                 <span class="name">
                   {{ .Site.Title }}

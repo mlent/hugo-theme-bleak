@@ -32,6 +32,12 @@
         ga('create', '{{ .Site.Params.ga }}', 'auto');
         ga('send', 'pageview');
     </script>
+  {{ else }}
+    <script>
+      window.ga = function(action, type, category, label, data) {
+        console.log(action, type, category, label, data);
+      };
+    </script>
   {{ end }}
   </body>
 </html>
