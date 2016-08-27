@@ -342,7 +342,7 @@ jQuery(function($) {
     get: 'user',
     userId: '3066755405',
     limit: 9,
-    template: '<a href="{{link}}" target="_blank" onClick="ga(\'send\', \'event\', \'External Link\', \'Instagram\', \'{{link}}@instafeed\')"><img src="{{image}}"></a>',
+    template: '<a href="{{link}}" target="_blank" onClick="ga(\'send\', \'event\', \'Social\', \'Instagram Thumbnail\', \'{{link}} @ instafeed\')"><img src="{{image}}"></a>',
     accessToken: '3066755405.e236d3d.4c6bd2bb878c432db0c4b99b91893700'
   });
   feed.run();
@@ -352,7 +352,36 @@ jQuery(function($) {
 		post.addClass('initial');
 		setTimeout(function() {
 			post.addClass('active');
+      attachPostContentEvents();
 		}, 1);
 	});
+  
+  attachPostContentEvents();
+
+  function attachPostContentEvents() {
+    $('.post-content a').click(function() {
+      var href = $(this).attr('href');
+      var current = window.location.pathname;
+      if (!href) { return; }
+      if (href.indexOf('notanomadblog') !== -1) {
+        window.ga('send', 'event', 'Click', 'Internal Link', href + ' @ ' + current);
+        return;
+      }
+
+      var label = '';
+      var value = '';
+      if ($(this).hasClass('place')) {
+        label = 'Place Link';
+        value = href;
+      } else if ($(this).attr('data-affiliate') !== undefined) {
+        label = 'Affiliate Link';
+        value = $(this).attr('data-product') + ' @ ' + $(this).attr('data-location');
+      } else {
+        label = 'Normal Link';
+        value = href;
+      }
+      window.ga('send', 'event', 'External Link', label, value + ' @ ' + current);
+    });
+  }
 
 });

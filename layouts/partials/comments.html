@@ -1,5 +1,5 @@
-<aside class="post-comments">
-    {{ if and (ne .Params.comments false) (not (in .Permalink "localhost")) }}
+<aside class="post-comments" data-permalink="{{ .Permalink }}">
+    {{ if and (ne .Params.comments false) (not (in .Permalink "1313")) }}
       {{ $doc := . }}
       {{ with .Site.Params.disqus }}
       <div id="disqus_thread"></div>

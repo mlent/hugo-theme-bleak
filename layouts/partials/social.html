@@ -2,7 +2,7 @@
 {{ $slug := substr .RelPermalink 1 (sub (len .RelPermalink) 2) }}
 <div class="post-share" data-slug="{{ $slug }}">
   <a
-    onClick="ga('send', 'event', 'Social', 'Pinterest', '{{ $slug }}@social-bar')"
+    onClick="ga('send', 'event', 'Share', 'Pinterest', '{{ $slug }} @ social-bar')"
     class="icon-pinterest popup"
     href="http://pinterest.com/pin/create/button?url={{ .Permalink }}&description={{ .Description }}&media={{ $baseurl }}{{ .Params.pinterestimage }}">
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px" height="15px" viewBox="0 0 28 28" enable-background="new 0 0 15 15" xml:space="preserve">
@@ -12,20 +12,20 @@
   </a>
   <a
     class="icon-twitter"
-    href="https://twitter.com/share?text={{ .Description }}&url={{ .Permalink }}"
-    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235'); ga('send', 'event', 'Share', 'Twitter', '{{ $slug }}@social-bar'); return false;">
+    href="https://twitter.com/share?text={{ if .Params.tweet }}{{ .Params.tweet }}{{ else }}{{ .Description }}{{ end }}&url={{ .Permalink }}"
+    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235'); ga('send', 'event', 'Share', 'Twitter', '{{ $slug }} @ social-bar'); return false;">
     <span>Twitter</span>
   </a>
   <a
     class="icon-facebook"
     href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}"
-    onclick="window.open(this.href, 'facebook-share','width=580,height=296'); ga('send', 'event', 'Share', 'Facebook', '{{ $slug }}@social-bar'); return false;">
+    onclick="window.open(this.href, 'facebook-share','width=580,height=296'); ga('send', 'event', 'Share', 'Facebook', '{{ $slug }} @ social-bar'); return false;">
     <span>Facebook</span>
   </a>
   <a
     class="icon-gplus"
     href="https://plus.google.com/share?url={{ $slug }}"
-    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530'); ga('send', 'event', 'Social', 'Google+', '{{ $slug }}@social-bar'); return false;">
+    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530'); ga('send', 'event', 'Share', 'Google+', '{{ $slug }} @ social-bar'); return false;">
     <span>Google+</span>
   </a>
 </div>

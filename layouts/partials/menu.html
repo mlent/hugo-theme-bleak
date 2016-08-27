@@ -3,7 +3,7 @@
 <li
   class="menu-list-item">
   <a
-    onClick="ga('send', 'event', 'Category Link', 'Click', '{{ title .Name }}@header-menu')"
+    onClick="ga('send', 'event', 'Category Link', 'Click', '{{ title .Name }} @ header-menu')"
     class="js-ajax-link {{if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }}current{{end}}"
     href="{{.URL}}">
     {{ .Name }}
